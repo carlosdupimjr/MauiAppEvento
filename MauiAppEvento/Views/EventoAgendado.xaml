@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEvento.Views.EventoAgendado"
+             Title="EventoAgendado" BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10">
+
+            <Label Text="Agendamento concluído!"
+               FontFamily="CharmBold"
+               HorizontalTextAlignment="Center"
+               FontSize="40"
+               TextColor="White"
+               />
+
+            <Frame Margin="5" Padding="10" BackgroundColor="BlueViolet" BorderColor="BlanchedAlmond">
+                <VerticalStackLayout>
+                    <Frame Margin="5">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Nome do evento:" FontSize="15"/>
+                            <Label Text="{Binding NomeDoEvento}" FontSize="20" FontAttributes="Bold"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Margin="5">
+                        <Grid ColumnDefinitions="*, *, *" RowDefinitions="Auto, Auto" >
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="Início:" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="Término:"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="Duração:"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding DuracaoEvento}"/>
+
+                        </Grid>
+                    </Frame>
+
+                    <Frame Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="Quantidade de participantes:" FontSize="15"/>
+                            <Label Text="{Binding QntParticipantes}" FontSize="20" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="Local do evento:" FontSize="15"/>
+                            <Label Text="{Binding LocalEvento}" FontSize="20" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="Valor por participante:" FontSize="15"/>
+                            <Label Text="{Binding ValorParticipante, StringFormat='{}{0:c}'}" FontSize="20" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="Valor total do evento:" FontSize="15"/>
+                            <Label Text="{Binding CustoEvento, StringFormat='{}{0:c}'}" FontSize="20" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Voltar" BackgroundColor="Silver"
+                    x:Name="btn_voltar" Margin="10"
+                    HorizontalOptions="Center" Clicked="btn_voltar_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
